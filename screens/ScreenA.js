@@ -20,8 +20,7 @@ function ScreenA ({navigation}){
         var url = 'https://pokeapi.co/api/v2/pokemon/';
         var finalurl = url+ text;
         console.log('=====url',finalurl);
-        fetch (finalurl).then((response)=>   
-        console.log('response===', response))
+        fetch (finalurl).then((response)=> response.json())
         .then((json)=> {
             console.log('json===', json);
             setData(json)} )
@@ -33,6 +32,7 @@ function ScreenA ({navigation}){
     return(
         <View style={styles.container}>
             <TextInput
+            placeholder='Enter Pokemon Character Name'
             value={text}
             onChangeText={onChangeText}
             style={ styles.textInput}
